@@ -3,10 +3,10 @@ package live.learnjava.data_collection_service.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,10 +36,12 @@ public class PlanEntity {
 		
 	private String activeSw;;
 	
-	@CreatedDate
+	@CreationTimestamp()
+	@Column(insertable = true, updatable = false)
 	private LocalDateTime createdAt;
 	
-	@LastModifiedDate
+	@UpdateTimestamp()
+	@Column(insertable = true, updatable = false)
 	private LocalDateTime updatedAt;
 	
 	@CreatedBy

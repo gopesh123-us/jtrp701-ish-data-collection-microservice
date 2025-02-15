@@ -3,6 +3,8 @@ package live.learnjava.data_collection_service.entities;
 import java.time.LocalDate;
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -29,15 +31,19 @@ public class DcEducationEntity {
 	private String highestQualification;
 	private Integer passOutYear;
 	
-	@CreatedDate
+	@CreationTimestamp()
+	@Column(insertable = true, updatable = false)
 	private Date createdAt;
 	
-	@LastModifiedDate
+	@UpdateTimestamp()
+	@Column(insertable = false, updatable = true)
 	private LocalDate updatedAt;
 	
 	@CreatedBy
+	@Column(length=30)
 	private String createdBy;
 	
 	@LastModifiedBy
+	@Column(length=30)
 	private String updatedBy;
 }

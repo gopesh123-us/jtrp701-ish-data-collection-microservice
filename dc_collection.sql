@@ -1,4 +1,4 @@
-USE jrtp701_ish_db;
+adv_javaUSE jrtp701_ish_db;
 
 SHOW TABLES;
 
